@@ -36,14 +36,14 @@ class phpfpm::params {
         $pid_file                       = '/var/run/php/php7.0-fpm.pid'
         $error_log                      = '/var/log/php7.0-fpm.log'
       # Debian buster is ship with php7.3
-      } elsif $facts['os']['family'] == 'Debian' and Integer($facts['os']['release']['major']) == 10 {
+      } elsif $facts['os']['family'] == 'Debian' and $facts['os']['release']['major'] == '10' {
         $package_name                   = 'php7.3-fpm'
         $service_name                   = 'php7.3-fpm'
         $config_dir                     = '/etc/php/7.3/fpm'
         $pid_file                       = '/run/php/php7.3-fpm.pid'
         $error_log                      = '/var/log/php7.3-fpm.log'
       # Debian stretch and above ship with php7 not php5
-      } elsif $facts['os']['family'] == 'Debian' and Integer($facts['os']['release']['major']) == 9 {
+      } elsif $facts['os']['family'] == 'Debian' and $facts['os']['release']['major'] == '9' {
         $package_name                   = 'php7.0-fpm'
         $service_name                   = 'php7.0-fpm'
         $config_dir                     = '/etc/php/7.0/fpm'
