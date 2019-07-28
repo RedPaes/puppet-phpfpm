@@ -15,21 +15,21 @@ class phpfpm::params {
 
       # Service configuration defaults
       # Ubuntu Bionic and above ship php 7.2
-      if $facts['os']['family'] == 'Ubuntu' and Integer($facts['os']['release']['major']) == 18 {
+      if $facts['os']['family'] == 'Ubuntu' and $facts['os']['release']['major'] ==  '18.04' {
         $package_name                   = 'php7.2-fpm'
         $service_name                   = 'php7.2-fpm'
         $config_dir                     = '/etc/php/7.2/fpm'
         $pid_file                       = '/var/run/php/php7.2-fpm.pid'
         $error_log                      = '/var/log/php7.2-fpm.log'
       # Ubuntu Artful and above ship php 7.1
-      } elsif $facts['os']['family'] == 'Ubuntu' and Integer($facts['os']['release']['major']) == 17 {
+      } elsif $facts['os']['family'] == 'Ubuntu' and $facts['os']['release']['major'] == '17.10' {
         $package_name                   = 'php7.1-fpm'
         $service_name                   = 'php7.1-fpm'
         $config_dir                     = '/etc/php/7.1/fpm'
         $pid_file                       = '/var/run/php/php7.1-fpm.pid'
         $error_log                      = '/var/log/php7.1-fpm.log'
       # Ubuntu Xenial and above ship with php7 not php5
-      } elsif $facts['os']['family'] == 'Ubuntu' and Integer($facts['os']['release']['major']) == 16 {
+      } elsif $facts['os']['family'] == 'Ubuntu' and $facts['os']['release']['major'] == '16.04' {
         $package_name                   = 'php7.0-fpm'
         $service_name                   = 'php7.0-fpm'
         $config_dir                     = '/etc/php/7.0/fpm'
